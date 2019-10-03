@@ -27,9 +27,9 @@ class UserDetails extends Component {
 
         this.state = {
             id: appConfig.item.id,
-            name: appConfig.item.name,
-            pass: appConfig.item.pass,
-            description: appConfig.item.description,
+            name: appConfig.item.employee_name,
+            pass: appConfig.item.employee_age,
+            description: appConfig.item.employee_salary,
             showProgress: false
         };
     }
