@@ -48,14 +48,12 @@ class UserDetails extends Component {
       showProgress: true,
     });
 
-    fetch(appConfig.url + 'api/users/update', {
-      method: 'post',
+    fetch('http://dummy.restapiexample.com/api/v1/update/' + this.state.id, {
+      method: 'put',
       body: JSON.stringify({
-        id: this.state.id,
         name: this.state.name,
-        pass: this.state.pass,
-        description: this.state.description,
-        authorization: appConfig.access_token,
+        age: this.state.pass,
+        salary: this.state.description,
       }),
       headers: {
         'Accept': 'application/json',
@@ -64,12 +62,13 @@ class UserDetails extends Component {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        if (responseData.pass) {
+        if (!responseData.message) {
           appConfig.users.refresh = true;
           this.props.navigation.goBack();
         } else {
           this.setState({
             badCredentials: true,
+            serverError: true,
           });
         }
       })
@@ -106,12 +105,8 @@ class UserDetails extends Component {
       bugANDROID: ' ',
     });
 
-    fetch(appConfig.url + 'api/users/delete', {
-      method: 'post',
-      body: JSON.stringify({
-        id: this.state.id,
-        authorization: appConfig.access_token,
-      }),
+    fetch('http://dummy.restapiexample.com/api/v1/delete/' + this.state.id, {
+      method: 'delete',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -119,14 +114,8 @@ class UserDetails extends Component {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        if (responseData.text) {
-          appConfig.users.refresh = true;
-          this.props.navigation.goBack();
-        } else {
-          this.setState({
-            badCredentials: true,
-          });
-        }
+        appConfig.users.refresh = true;
+        this.props.navigation.goBack();
       })
       .catch((error) => {
         this.setState({

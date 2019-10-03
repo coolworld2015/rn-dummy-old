@@ -35,14 +35,12 @@ class UserAdd extends Component {
       showProgress: true,
     });
 
-    fetch(appConfig.url + 'api/users/add', {
+    fetch('http://dummy.restapiexample.com/api/v1/create', {
       method: 'post',
       body: JSON.stringify({
-        id: +new Date,
         name: this.state.name,
-        pass: this.state.pass,
-        description: this.state.description,
-        authorization: appConfig.access_token,
+        age: this.state.pass,
+        salary: this.state.description,
       }),
       headers: {
         'Accept': 'application/json',
