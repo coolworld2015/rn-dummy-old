@@ -18,10 +18,10 @@ class UserDetails extends Component {
         super(props);
 
         this.state = {
-            id: appConfig.users.item.id,
-            name: appConfig.users.item.name,
-            pass: appConfig.users.item.pass,
-            description: appConfig.users.item.description,
+            id: appConfig.item.id,
+            name: appConfig.item.employee_name,
+            pass: appConfig.item.employee_age,
+            description: appConfig.item.employee_salary,
             showProgress: false
         }
     }

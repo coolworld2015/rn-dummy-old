@@ -105,7 +105,7 @@ class Users extends Component {
     }
 
     showDetails(rowData) {
-        appConfig.users.item = rowData;
+        appConfig.item = rowData;
         this.props.navigation.navigate('UserDetails');
     }
 
