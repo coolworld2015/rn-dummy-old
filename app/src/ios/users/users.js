@@ -241,7 +241,7 @@ class Users extends Component {
             <TouchableWithoutFeedback>
               <View>
                 <Text style={styles.textLarge}>
-                  Users
+                  Dummy.restapiexample
                 </Text>
               </View>
             </TouchableWithoutFeedback>
@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
     marginTop: 12,
-    paddingLeft: 10,
+    paddingLeft: 0,
     fontWeight: 'bold',
     color: 'white',
   },
